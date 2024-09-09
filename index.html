@@ -3,21 +3,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <title>Keep Notes</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="notesstyle.css">
+  
     <script src="//unpkg.com/@uirouter/angularjs@1.0.5/release/angular-ui-router.js"></script>
     <script src="routing.js"></script>
     <link rel="icon" href="https://www.gstatic.com/images/branding/product/1x/keep_512dp.png" type="image/icon type">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   </head>
   <body>  
   
     <div class="box" >
    
         <div class="side-navigation">
-          <div class="logo"> <h2>Keep Notes</h2>   <img class="logoimg" src="https://www.gstatic.com/images/branding/product/1x/keep_512dp.png" alt="logo"></div>
+          <div class="logo"><img class="logoimg" src="https://www.gstatic.com/images/branding/product/1x/keep_512dp.png" alt="logo"> <div class="text"><p class="logotext">Keep Notes</p> <p class="underlogotext">Keep Your Things Private</p> </div>  </div>
 
             <div class="div" ui-sref="todo" ui-sref-active="active"> Todo</div>
             <div class="div" ui-sref="notes" ui-sref-active="active">    Notes</div>
@@ -25,6 +27,9 @@
             <div class="div">Trash</div>
             <div class="div">Edit Labels</div>
             <div class="divlog"><button class="logout" id="logout">Log Out</button> </div>
+            <div class="About">--------------------------------------------</div>
+            <!-- <div class="flex">Made with <span class="text-red-500 mx-2">❤️</span> by Shivanshu</div> -->
+
         </div>
         <ui-view></ui-view>
 
