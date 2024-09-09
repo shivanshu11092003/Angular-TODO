@@ -28,10 +28,10 @@ request.error = function (event) {
 
 request.onupgradeneeded = (event) => {
     let db = request.result;
-    let sessionEmail = sessionStorage.getItem("email")
 
-    let response = db.createObjectStore("Todo", { keyPath: "email"});
+    let response = db.createObjectStore("Todo", { keyPath: "id", autoIncrement: true });
     response.createIndex("text", "text", { unique: false })
+    response.createIndex("email", "email", { unique: false })
 
 }
 let Data = []
@@ -44,8 +44,8 @@ request.onsuccess = function (event) {
     //         text: "Erp",
     //         done: false   
     //  })
-    let responseResult = store.getAll()
-    
+    let index = store.index("email")
+    let responseResult = index.getAll(sessionStorage.getItem("email"))
 
     responseResult.onsuccess = (e) => {
         console.log(e.target.result)
@@ -66,80 +66,294 @@ myApp.controller('TodoListController', function () {
 
 
     this.addTodo = function () {
-        const textToSave =this.todoText
+        const textToSave = this.todoText
         let sessionEmail = sessionStorage.getItem("email")
-        let arr =[]
+        let arr = []
         arr.push({
             text: textToSave,
+            email: sessionEmail,
             done: false
         })
-        
+
         const request = indexedDB.open("TodoDatabase", 1)
         request.onsuccess = function (event) {
             let db = request.result;
-            
-            let transaction = db.transaction("Todo", "readwrite")
-            let store1 = transaction.objectStore("Todo")
-            let store2 = transaction.objectStore("data")
-          
 
-            arr.forEach(element =>{
-                store1.add(element)
+            let transaction = db.transaction("Todo", "readwrite")
+            let store = transaction.objectStore("Todo")
+
+            arr.forEach(element => {
+                store.add(element)
             })
-            
-                // let responseSave = store.add({
-                //     text: textToSave,
-                //     email: sessionEmail,
-                //     done: false
-                // })
-        
-            
-        
-        
-        
-        
-            // responseSave.onsuccess = (e) => {
-            //     console.log(e.target.result)
-        
-            // }
-            // responseSave.onerror = (e) => {
-            //     console.log(e.target.result)
-            // }
-          
+
+
         }
+        this.todoText = ""
+        location.reload();
 
 
     };
     this.delTodo = function (index) {
-        console.log(index)
-        this.todos.splice(index, 1);
+
+
+        const request = indexedDB.open("TodoDatabase", 1)
+        request.onsuccess = function (event) {
+            let db = request.result;
+
+            let transaction = db.transaction("Todo", "readwrite")
+            let store = transaction.objectStore("Todo")
+            let indexofStore = store.index("email")
+            let responseResult = indexofStore.getAll(sessionStorage.getItem("email"))
+
+            responseResult.onsuccess = (e) => {
+                console.log(e.target.result)
+                Data = e.target.result;
+            }
+            console.log(Data[index].id)
+
+
+
+            store.delete(Data[index].id)
+            location.reload();
+
+
+
+
+        }
+
     }
+
     this.updateTodo = function (index) {
         const updateValue = prompt("Enter New Todo Task")
         console.log(updateValue)
-        this.todos[index].text == updateValue
+
+
+
+        const request = indexedDB.open("TodoDatabase", 1)
+        request.onsuccess = function (event) {
+            let db = request.result;
+
+            let transaction = db.transaction("Todo", "readwrite")
+            let store = transaction.objectStore("Todo")
+            const sessionEmail = sessionStorage.getItem("email")
+
+            console.log(Data[index].id)
+            const elementId = Data[index].id
+            const status = Data[index].done
+            console.log(elementId)
+
+            store.put({
+                id: elementId,
+                text: updateValue,
+                email: sessionEmail,
+                done: status
+            })
+            location.reload();
+
+
+
+
+
+
+
+
+        }
+    }
+
+    this.updateStatus = function (index) {
+        console.log(Data)
+
+        const request = indexedDB.open("TodoDatabase", 1)
+        request.onsuccess = function (event) {
+            let db = request.result;
+
+            let transaction = db.transaction("Todo", "readwrite")
+            let store = transaction.objectStore("Todo")
+            const sessionEmail = sessionStorage.getItem("email")
+
+            console.log(Data[index].id)
+            const elementId = Data[index].id
+            let status1 = Data[index].done
+            
+
+
+            if (!status1) {
+                status1 = true
+            }else{
+                status1 = false
+            }
+            const updateValue = Data[index].text
+            let status = Data[index].done
+
+            console.log(status)
+
+            store.put({
+                id: elementId,
+                text: updateValue,
+                email: sessionEmail,
+                done: status
+            })
+            // location.reload();
+
+
+
+
+
+
+
+
+        }
+
     }
 
 
-}).controller('noteListController', function () {
-    this.notes = [
-        { text: ' cI hope this message finds you well. My name is Shivanshu Gupta, and I am writing to express my interest in the internship opportunity that focuses on Kotlin and Jetpack Compose. I am enthusiastic about contributing to your team and further honing my skills in Android development. As a passionate Android developer, I have been working extensively with Kotlin and Jetpack Compose, and I am confident in my ability to add value to your projects. I have developed several applications that demonstrate my understanding of modern Android development practices, which you can review on my GitHub project links:ricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricket 1hr', title: "My Journey" },
-        { text: 'Classecricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcrickets', title: "yesterday" },
-        { text: 'Erp cricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricketcricket', title: "title" }
-    ];
+})
+
+const requestNotes = indexedDB.open("NotesDatabase", 1)
+
+requestNotes.error = function (event) {
+    console.log("Error in Request")
+}
+
+requestNotes.onupgradeneeded = (event) => {
+    let db = requestNotes.result;
+
+    let response = db.createObjectStore("Notes", { keyPath: "id", autoIncrement: true });
+    response.createIndex("text", "text", { unique: false })
+    response.createIndex("email", "email", { unique: false })
+
+
+}
+let notesData = []
+requestNotes.onsuccess = function (event) {
+    let db = requestNotes.result;
+    let transaction = db.transaction("Notes", "readwrite")
+    let store = transaction.objectStore("Notes")
+    //     let responseSave = store.add({
+    //         id: 2,
+    //         text: "Erp",
+    //         done: false   
+    //  })
+    let index = store.index("email")
+    let responseResult = index.getAll(sessionStorage.getItem("email"))
+
+    responseResult.onsuccess = (e) => {
+        console.log(e.target.result)
+        notesData = e.target.result;
+    }
+    responseResult.onerror = (e) => {
+        console.log(e.target.result)
+    }
+}
+
+
+
+myApp.controller('noteListController', function () {
+    this.notes = notesData
+ 
+
+
+
     this.addNote = function () {
-        this.notes.push({ text: this.noteText, title: this.notes.length });
-        this.noteText = '';
+        console.log("Adding ....")
+        const textToSave = this.noteText
+        let sessionEmail = sessionStorage.getItem("email")
+        let arr = []
+        console.log(textToSave)
+        arr.push({
+            text: textToSave,
+            email: sessionEmail,
+        })
+        console.log(arr)
+
+        const requestNotes = indexedDB.open("NotesDatabase", 1)
+        requestNotes.onsuccess = function (event) {
+            let db = requestNotes.result;
+
+            let transaction = db.transaction("Notes", "readwrite")
+            let store = transaction.objectStore("Notes")
+
+            arr.forEach(element => {
+                store.add(element)
+            })
+
+
+        }
+        this.noteText = ""
+        location.reload();
+
+
     };
-    this.deltodo = function (index) {
-        console.log(index)
-        this.notes.splice(index, 1);
+    this.delTodo = function (index) {
+
+
+        const requestNotes = indexedDB.open("NotesDatabase", 1)
+        requestNotes.onsuccess = function (event) {
+            let db = requestNotes.result;
+
+            let transaction = db.transaction("Notes", "readwrite")
+            let store = transaction.objectStore("Notes")
+            let indexofStore = store.index("email")
+            let responseResult = indexofStore.getAll(sessionStorage.getItem("email"))
+
+            responseResult.onsuccess = (e) => {
+                console.log(e.target.result)
+                notesData = e.target.result;
+            }
+            console.log(notesData[index].id)
+
+
+
+            store.delete(notesData[index].id)
+            location.reload();
+
+
+
+
+        }
+
+    }
+
+    this.updateTodo = function (index) {
+        const updateValue = prompt("Enter Note Task")
+        console.log(updateValue)
+
+
+
+        const requestNotes = indexedDB.open("NotesDatabase", 1)
+        requestNotes.onsuccess = function (event) {
+            let db = requestNotes.result;
+
+            let transaction = db.transaction("Notes", "readwrite")
+            let store = transaction.objectStore("Notes")
+            const sessionEmail = sessionStorage.getItem("email")
+
+            console.log(notesData[index].id)
+            const elementId = notesData[index].id
+            console.log(elementId)
+
+            store.put({
+                id: elementId,
+                text: updateValue,
+                email: sessionEmail
+            })
+            location.reload();
+
+
+
+
+
+
+
+
+        }
     }
 
 })
-/*
-'<div class="todoList" ng-controller="TodoListController as todoList">'
-    +'<form ng-submit="todoList.addTodo()"><input type="text" ng-model="todoList.todoText"  size="30"placeholder="add new todo"><input class="btn-primary" type="submit" value="add"></form>'+'<ul class="unstyled"><li ng-repeat="todo in todoList.todos"><label class="checkbox">'
-    +'<input type="checkbox" ng-model="todo.done"><span class="done-{{todo.done}}">{{todo.text}}</span>'+'</label></li></ul></div>' */
+
+
+document.getElementById("logout").addEventListener("click",() =>{
+    window.location.assign("http://127.0.0.1:5501/LoginModule/Login.html")
+})
 
 

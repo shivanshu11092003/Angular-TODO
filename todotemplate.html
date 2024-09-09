@@ -6,11 +6,11 @@
     <ul class="unstyled">
         <li class="eachItem" ng-repeat="todo in todoList.todos">
             <label class="checkbox">
-                <input class="todoDone" type="checkbox" ng-model="todo.done">
+                <input class="todoDone" type="checkbox" id="{{todo.id}}" ng-click="todoList.updateStatus($index)" ng-model="todo.done">
                 <span class="done-{{todo.done}}">{{todo.text}}</span>
             </label>
             <div class="btn"><button class="todobtn" ng-click="todoList.updateTodo($index)">Update</button>
-                <button class="todobtn"  ng-click="todoList.delTodo($index)">Delete</button></div>
+                <button class="todobtn" id="del{{todo.id}}"  ng-click="todoList.delTodo($index)">Delete</button></div>
             
         </li>
     </ul>
