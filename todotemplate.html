@@ -1,0 +1,17 @@
+<div class="todoList" ng-controller="TodoListController as todoList">
+    <form ng-submit="todoList.addTodo()">
+        <input class="input" type="text" ng-model="todoList.todoText"  size="30" placeholder="Add new todo">
+        <input class="add" type="submit" value="Add">
+    </form>
+    <ul class="unstyled">
+        <li class="eachItem" ng-repeat="todo in todoList.todos">
+            <label class="checkbox">
+                <input class="todoDone" type="checkbox" ng-model="todo.done">
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+            </label>
+            <div class="btn"><button class="todobtn" ng-click="todoList.updateTodo($index)">Update</button>
+                <button class="todobtn"  ng-click="todoList.delTodo($index)">Delete</button></div>
+            
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: "SUSE", sans-serif;
+}
+
+.main{
+    background: url("https://cdn.teachstarter.com/fileserver/2022/06/IMG_1365-1200x800.jpg");
+
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    background-color: #2e2e2e;
+    height: 93vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+.box1{
+    background-color: #2e2e2e;
+
+    height: 100%;
+    width: 30vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    
+}
+.box2{
+    background-color: #2e2e2e;
+    height: 96%;
+    width: 48.5%;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center; 
+}
+.box2 img{
+    background-color: #2e2e2e;
+    height: 100%;
+    border-radius: 1.3em;
+    width: 100%;
+}
+.box1 h1{
+    background-color: #2e2e2e;
+    display: flex;
+}
+h3{
+    background-color: #2e2e2e;
+    font-size: 1.9rem;
+    color: white;
+    font-weight: 300;
+
+
+}
+.welcome{
+    background-color: #2e2e2e;
+    
+}
+.input{
+    font-size: 1.4rem;
+    height: 6vh;
+    width: 19vw;
+    margin-top: 0.9em;
+    border-radius: .7em;
+    border: 1.5px solid lightgrey;
+    outline: 0;
+    box-shadow: 0px 0px 20px -18px;
+
+}
+.input:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+  }
+  
+.submitbtn{
+    font-size: 1.4rem;
+    height: 5vh;
+    width: 13vw;
+    margin-left: 1.9em;
+    margin-top: 1em;
+    border-radius: 1em;
+    border: 0;
+    outline: 0;
+    color: white;
+    background-color: black;
+}
+.submitbtn:hover {
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+  }
+  
+.box1 p{
+    background-color: #2e2e2e;
+    color: white;
+}
+.asteacher:hover{
+    text-decoration: underline;
+    
+}
+.msg{
+    color: red;
+    background-color: #2e2e2e;
+}
+.pmsg{
+    color: red;
+    background-color: #2e2e2e;
+}
+.notes{
+    background-color: #2e2e2e;
+
+    align-self: start;
+    width: 9vw;
+    font-size: 1.9rem;
+    font-family: "Dancing Script", cursive;
+    margin-top: 1em;
+    color: white;
+    margin-left: .4em;
+}
+.logo{
+    background-color: #2e2e2e;
+
+    
+    height: 4vh;
+    width: 2vw;
+
+}
+.logodiv{
+    background-color: #2e2e2e;
+
+    align-self: flex-start;
+}

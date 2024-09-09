@@ -1,0 +1,18 @@
+<div class="noteList" ng-controller="noteListController as noteList">
+    <form  ng-submit="noteList.addNote()">
+        <input class="input" type="text" ng-model="noteList.noteText"  size="30" placeholder="Add new Note">
+        <input class="add" type="submit" value="Add">
+    </form> 
+    <ul class="unstyled1">
+        <li class="eachItem1" ng-repeat="note in noteList.notes">
+            <label class="Notes">
+                <span class="title">{{note.title}}</span>
+                <br>
+                <span class="done">{{note.text}}</span>
+            </label>
+            <div class="btn"><button class="todobtn">Update</button>
+                <button class="todobtn" id="{{note.id}}" ng-click="noteList.deltodo($index)">Delete</button></div>
+            
+        </li>
+    </ul>
+</div>
