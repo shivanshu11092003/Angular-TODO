@@ -1,278 +1,259 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    font-family: "SUSE", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: "SUSE", sans-serif;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
-
-
 
 .logo {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    width: 95%;
-    height: 7vh;
-    align-items: center;
-    border-radius: 1em;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  width: 95%;
+  height: 7vh;
+  align-items: center;
+  border-radius: 1em;
 }
-.text{
-    display: flex;
-    flex-direction: column;
+.text {
+  display: flex;
+  flex-direction: column;
 }
-.logotext{
-    background-color: #ffffff;
-    font-weight: 700;
-    font-size: 1.3rem;
-
-
-
+.logotext {
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
-.underlogotext{
-    background-color: #ffffff;
-    font-weight: 200;
-    font-size: 1rem;
-
-
+.underlogotext {
+  background-color: #ffffff;
+  font-weight: 200;
+  font-size: 1rem;
 }
 .logoimg {
-    background-color: #ffffff;
-    width: 4vw;
-    height: 7vh;
+  background-color: #ffffff;
+  width: 4vw;
+  height: 7vh;
 }
 
 .side-navigation {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    display: flex;
-    flex-direction: column;
-    width: 16vw;
-    min-height: 100%;
-    position: fixed;
-    align-self: flex-start;
-    align-items: center;
-    background-color: #f8f8f9;
-
-
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: column;
+  width: 16vw;
+  min-height: 100%;
+  position: fixed;
+  align-self: flex-start;
+  align-items: center;
+  background-color: #f8f8f9;
 }
 
-
-
 .div {
-    background-color: #f8f8f9;
-    color: black;
-    margin: .1em;
-    font-weight: 300;
-    font-size: 1.3rem;
-    width: 95%;
-    display: flex;
-    align-items: center;
-    height: 6vh;
-    font-family: "Inter", sans-serif;
+  background-color: #f8f8f9;
+  color: black;
+  margin: 0.1em;
+  font-weight: 300;
+  font-size: 1.3rem;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  font-family: "Inter", sans-serif;
 }
 
 .div:hover {
-    background-color: #ffffff;
-    border-radius: .7em;
-
+  background-color: #ffffff;
+  border-radius: 0.7em;
 }
-.About{
-    background-color: #f8f8f9;
+.About {
+  background-color: #f8f8f9;
 }
-
 
 .divlog {
-    background-color: #ffff;
-    color: black;
-    margin: 1em;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    height: 6vh;
-    margin-top: 48vh;
+  background-color: #ffff;
+  color: black;
+  margin: 1em;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  margin-top: 69vh;
 }
 
 .logout {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 10px;
-    height: 2.8em;
-    width: 11em;
-    background-color: transparent;
-    font-size: 1rem;
-    background-color: black;
-    color: whitesmoke;
-    transition: all .3s;
-   
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  height: 2.8em;
+  width: 11em;
+  background-color: transparent;
+  font-size: 1rem;
+  background-color: black;
+  color: whitesmoke;
+  transition: all 0.3s;
 }
 
 .icon {
-    background-color: #ffff;
-    width: 2vw;
-    height: 3vh;
+  background-color: #ffff;
+  width: 2vw;
+  height: 3vh;
 }
 
 .div:hover .icon {
-    background-color: rgb(254, 239, 195);
-    
-
+  background-color: rgb(254, 239, 195);
 }
 
 .input {
-    width: 40vw;
-    height: 5vh;
-    font-size: 1.4rem;
-    margin-top: 0.9em;
-    border-radius: .7em;
-    border: 1.5px solid lightgrey;
-    outline: 0;
-    box-shadow: 0px 0px 20px -18px;
-    padding: 0.3em;
-
+  width: 40vw;
+  height: 5vh;
+  font-size: 1.4rem;
+  margin-top: 0.9em;
+  border-radius: 0.7em;
+  border: 1.5px solid lightgrey;
+  outline: 0;
+  box-shadow: 0px 0px 20px -18px;
+  padding: 0.3em;
 }
 
 .add {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 10px;
-    height: 2.8em;
-    width: 6em;
-    background-color: transparent;
-    font-size: 1rem;
-    background-color: black;
-    color: whitesmoke;
-    transition: all .3s;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 10px;
+  height: 2.8em;
+  width: 6em;
+  background-color: transparent;
+  font-size: 1rem;
+  background-color: black;
+  color: whitesmoke;
+  transition: all 0.3s;
 }
 
 .add:hover {
-    box-shadow: 1px 1px 29px 1px rgba(39, 39, 47, 0.4);
+  box-shadow: 1px 1px 29px 1px rgba(39, 39, 47, 0.4);
 }
-.checkbox{
-    background-color: #f8f8f9;
+.checkbox {
+  background-color: #f8f8f9;
 }
-
-
 
 .done-true {
-    background-color: #f8f8f9;
-    text-decoration: line-through;
-    color: grey;
-    font-size: 1.8rem;
+  background-color: #f8f8f9;
+  text-decoration: line-through;
+  color: grey;
+  font-size: 1.8rem;
 }
 
 .done-false {
-    background-color: #f8f8f9;
-    font-size: 1.8rem;
+  background-color: #f8f8f9;
+  font-size: 1.8rem;
 }
 
 .todoDone {
-    width: 4vw;
-    height: 3vh;
-    background-color: #f8f8f9;
-
+  width: 4vw;
+  height: 3vh;
+  background-color: #f8f8f9;
 }
 
 .todobtn {
-    margin: .1em;
-    border-radius: 10px;
-    height: 2em;
-    width: 2em;
-    background-color: transparent;
-    font-size: 1rem;
-    background-color: rgb(72, 72, 72);
-    color: whitesmoke;
-    transition: all .3s;
-    border: 0;
-
+  margin: 0.1em;
+  border-radius: 10px;
+  height: 2em;
+  width: 2em;
+  background-color: transparent;
+  font-size: 1rem;
+  background-color: rgb(72, 72, 72);
+  color: whitesmoke;
+  transition: all 0.3s;
+  border: 0;
 }
 
 .todobtn:hover {
-
-    box-shadow: 1px 1px 29px 1px rgba(39, 39, 47, 0.4);
-
+  box-shadow: 1px 1px 29px 1px rgba(39, 39, 47, 0.4);
 }
 .todolist {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-    margin-left: 20em;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  margin-left: 20em;
 }
 .noteList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100%;
-    margin-left: 20em;
-
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  margin-left: 20em;
 }
 .unstyled {
-    margin: 3em;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1em;
-   
-
+  margin: 3em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1em;
 }
 
 .unstyled1 {
-    margin: 3em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 10vh;
-    width: 100%;
+  margin: 3em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 10vh;
+  width: 100%;
 }
 .eachItem {
-    border: 1px solid black;
-    margin: .5em;
-    width: 70vw;
-    height: 7vh;
-    border-radius: 1em;
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f8f9;
-
-
-
+  border: 1px solid black;
+  margin: 0.5em;
+  width: 70vw;
+  height: 7vh;
+  border-radius: 1em;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f9;
 }
 
-
 .eachItem1 {
-    border: .6px solid black;
-    border-radius: 1em;
-    margin: .5em;
-    width: 19vw;
-    min-height: 23vh;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-image: url("https://img.freepik.com/free-photo/paper-textures-background_74190-266.jpg?w=1380&t=st=1725899195~exp=1725899795~hmac=a927f5f2884cf43be5135c16fbe847a2ea7141655efd33b67aae78d35450b3e3");
-    background-size: cover;
-
-
+  border: 0.6px solid black;
+  border-radius: 1em;
+  margin: 0.5em;
+  min-width: 23vw;
+  min-height: 44vh;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("https://img.freepik.com/free-photo/paper-textures-background_74190-266.jpg?w=1380&t=st=1725899195~exp=1725899795~hmac=a927f5f2884cf43be5135c16fbe847a2ea7141655efd33b67aae78d35450b3e3");
+  background-size: cover;
 }
 
 .done {
-    background-color: transparent;
+  background-color: transparent;
+}
+.done1 {
+  padding: 0.2em;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  border: 0;
 }
 
 .btn {
-    background-color: transparent;
-    display: flex;
-    align-items: flex-end;
+    padding: 1em;
+  background-color: transparent;
+  display: flex;
+
+}
+.btn1 {
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: 21em;
 }

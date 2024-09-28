@@ -6,10 +6,13 @@
     <ul class="unstyled1">
         <li class="eachItem1" ng-repeat="note in noteList.notes">
         
-                <span class="done">{{note.text}}</span>
-            </label>
-            <div class="btn"><button class="todobtn" ng-click="noteList.updateTodo($index)">/</button>
-                <button class="todobtn" id="{{note.id}}" ng-click="noteList.delTodo($index)">X</button></div>
+                <!-- <input size="3" type="text" class="done1" value="{{note.text}}"> -->
+                <textarea rows="1"  cols="4" class="done1">{{note.text}}</textarea>
+             <div class="btn1">
+                <button class="todobtn" ng-click="noteList.updateTodo($index)">/</button>
+                <button class="todobtn" id="{{note.id}}" ng-click="noteList.delTodo($index)">X</button>
+                
+                </div> 
             
         </li>
     </ul>
